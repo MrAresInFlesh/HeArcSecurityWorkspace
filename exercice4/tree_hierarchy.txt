@@ -1,0 +1,11 @@
+exercice4
+│   README.md
+│   requirements.txt
+│
+├───.venv
+├───__pycach__
+└───challenge_response_authentication
+       client.py
+       cryptool.py
+       main.py
+       server.py
