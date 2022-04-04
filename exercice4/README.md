@@ -62,7 +62,7 @@ exercice4
 Le protocole CHAP (Challenge Handshake Authentication Protocol) est un protocole d'authentification point à point (PPP) développé par l'IETF (Internet Engineering Task Force). Il est utilisé au démarrage initial du lien. En outre, il effectue des vérifications périodiques pour vérifier si le routeur communique toujours avec le même hôte.
 
 * CHAP:
-  * utilise le protocole d'établissement de liaison à 3 voies (pas comme TCP). Tout d'abord, l'authentificateur envoie un paquet de défi au pair, puis le pair répond avec une valeur en utilisant sa fonction de hachage à sens unique. L'authentificateur fait alors correspondre la valeur reçue avec sa propre valeur de hachage calculée. Si les valeurs correspondent, l'authentification est confirmée, sinon la connexion sera interrompue.
+  * utilise le protocole d'établissement de liaison à 3 voies (pas comme TCP). Tout d'abord, l'authentificateur envoie un paquet de défi au pair, puis le pair répond avec une valeur en utilisant sa fonction de hachage à sens unique. L'authentificateur fait alors correspondre la valeur reçue avec sa propre valeur de hachage calculée. Si les valeurs correspondent, l'authentification est confirmée, sinon invitation à ce que l'utilisateur réessaie.
   * utilise une fonction de hachage unidirectionnelle appelée MD5.
   * s'authentifie également périodiquement pour vérifier si la communication a lieu avec le même appareil ou non.
   * offre plus de sécurité que PAP (Password Authentication Procedure) car la valeur utilisée (découverte par la fonction de hachage) est modifiée de manière variable.
