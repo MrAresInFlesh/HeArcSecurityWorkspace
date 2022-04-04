@@ -57,7 +57,7 @@ class Server:
         """
         self.activated = trigger
         
-    def check_password(self, client: Client, password) -> bool:
+    def check_client_password(self, client: Client, password) -> bool:
         """
         Given a client, check if the client's password 
         matches the password associated with the client's

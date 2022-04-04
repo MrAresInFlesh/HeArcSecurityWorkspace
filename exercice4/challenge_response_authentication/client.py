@@ -14,7 +14,8 @@ class Client:
     client-server. A client has a name, a password and a 
     'secret' which is shared with the server.
     It is voluntarily simple, as it should show the process
-    behind a challenge-response authentication protocol.
+    behind a challenge-response authentication protocol using
+    the CHAP protocol.
     
     _methods: 
         - client_response(self, password, nonce) -> str
@@ -27,7 +28,7 @@ class Client:
     def __init__(self, name, password) -> None:
         self.name = name
         self.secret = 'secret'
-        self.password = password        
+        self.password = password
             
     def __str__(self) -> str:
         return  "\n" + \
@@ -39,7 +40,7 @@ class Client:
     #   Methods              |
     #|-----------------------/
 
-    def client_response(self, password, nonce) -> str:
+    def response(self, password, nonce) -> str:
         """_summary_
         The function takes in a password and a nonce and 
         returns a hash of the password and nonce

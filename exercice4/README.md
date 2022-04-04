@@ -20,7 +20,7 @@ Indications (répondre aux questions en commentaire dans le code)
 ### Questions
 
 * quel hachage cryptographique utilisez-vous et pourquoi?
-  * J'utilise MD5(pour Message Digest 5). C'est une fonction de hachage cryptographique qui permet d'obtenir l'empreinte numérique d'une variable, par exemple une chaîne de caractère. Il est aujourd'hui dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. Le seul intérêt ici est qu'il convient bien à l'exercice d'implémentation du challenge-response protocole.
+  * J'utilise MD5(pour Message Digest 5). C'est une fonction de hachage cryptographique qui permet d'obtenir l'empreinte numérique d'une variable, par exemple une chaîne de caractère. Il est aujourd'hui dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. Le seul intérêt ici est qu'il convient bien à l'exercice d'implémentation du challenge-response protocole. Et voilà, c'est plus simple d'utiliser les fonctions directement proposées par hashlib.
 * quelles précautions pour le générateur aléatoire?
 * quelles précautions pour la construction garantissant l'unicité du nonce?
 * quelles précautions pour la durée de validité du nonce?
@@ -65,4 +65,3 @@ Le protocole CHAP (Challenge Handshake Authentication Protocol) est un protocole
   * s'authentifie également périodiquement pour vérifier si la communication a lieu avec le même appareil ou non.
   * offre plus de sécurité que PAP (Password Authentication Procedure) car la valeur utilisée (découverte par la fonction de hachage) est modifiée de manière variable.
   * nécessite de connaître le texte en clair du secret car il n'est jamais envoyé sur le réseau.
-

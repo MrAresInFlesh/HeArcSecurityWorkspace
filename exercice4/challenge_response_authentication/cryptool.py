@@ -3,9 +3,10 @@
 #|-----------------------/
 
 from hashlib import md5, sha1
+from os import urandom
 import datetime
-import random
 import hmac
+import secrets
 
 #######################################################################################
 # CLASS                                                                               #
@@ -27,16 +28,21 @@ class Cryptographe:
         Create a random number, and then use HMAC to hash 
         it along with a timestamp and the username.
         
+        Secret is generated using 'secrets' module, as this
+        link show why.
+        https://stackoverflow.com/questions/20936993/how-can-i-create-a-random-number-that-is-cryptographically-secure-in-python
+        
         :param username: The username of the user
         :return: a string that is a hexadecimal digest of 
         the HMAC hash of the username and the current
         time.
         """
+        
         # compute k using the time and the username.
-        k = str(datetime.datetime.utcnow()) + username
+        k = str(datetime.datetime.utcnow()) * secrets.token_hex(16) + username
         
         # compute s using the time and the username.
-        s = str(random.randint(0, 99999))
+        s = secrets.token_hex(32)
         
         # Computing the nonce as a string.
         return hmac.new(k.encode('ascii'), 

@@ -23,7 +23,7 @@ from server import Server
 SHOW_PROCESS = True
 
 #|------------------------------------------------------------------------------------|
-#   Methods              |
+#|  Methods              |
 #|-----------------------/
 
 def display_infos(show_process):
@@ -67,7 +67,7 @@ def check_exit():
         sys.exit()
 
 #|------------------------------------------------------------------------------------|
-#   Program              |
+#|  Program              |
 #|-----------------------/
 
 if __name__=="__main__":
@@ -109,9 +109,6 @@ if __name__=="__main__":
             SHOW_PROCESS = display_infos(SHOW_PROCESS)
 
             # Registering the client to the list of clients of the server
-            """
-            Register the client to the server
-            """
             print(f"|--------------------------------------------------")
             print(f"|\tRegistering client " +\
                 f"{Fore.GREEN} { client.name } {Style.RESET_ALL} to the server.")
