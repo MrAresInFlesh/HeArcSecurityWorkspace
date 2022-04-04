@@ -31,7 +31,8 @@ class Server:
     def __init__(self, name) -> None:
         self.name = name
         self.secret = 'secret'
-        self.nonce = Cryptographe.createNonce(self.secret)
+        self.cipher = Cryptographe()
+        self.nonce = self.cipher.createNonce(self.secret)
         self.activated = False
         self.clients = list()
         

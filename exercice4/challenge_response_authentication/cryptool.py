@@ -3,10 +3,9 @@
 #|-----------------------/
 
 from hashlib import md5, sha1
-from os import urandom
+from secrets import token_hex
 import datetime
 import hmac
-import secrets
 
 #######################################################################################
 # CLASS                                                                               #
@@ -16,14 +15,16 @@ class Cryptographe:
     """_summary_
     The Cryptographe class is an utilitary class that 
     regroups cryptographic functions.
-    """    
+    """
+    
+    def __init__(self) -> None:
+        self.nonces = list()
 
 #|------------------------------------------------------------------------------------|
 #   Methods              |
 #|-----------------------/
 
-    @staticmethod
-    def createNonce(username):
+    def createNonce(self, username):
         """_summary_
         Create a random number, and then use HMAC to hash 
         it along with a timestamp and the username.
@@ -39,16 +40,29 @@ class Cryptographe:
         """
         
         # compute k using the time and the username.
-        k = str(datetime.datetime.utcnow()) * secrets.token_hex(16) + username
+        k = str(datetime.datetime.utcnow()) + username
         
-        # compute s using the time and the username.
-        s = secrets.token_hex(32)
+        # compute s using.
+        s = token_hex(32)
         
         # Computing the nonce as a string.
-        return hmac.new(k.encode('ascii'), 
+        nonce = hmac.new(k.encode('ascii'), 
                         s.encode('ascii'), 
                         sha1)\
                         .hexdigest()
+
+        self.nonces.append(nonce)
+        
+        for nnc in self.nonces:
+            if self.nonces.count(nnc) > 1:
+                while self.nonces.count(nnc) > 1:
+                    nnc = hmac.new(k.encode('ascii'), 
+                        (s + token_hex(2)).encode('ascii'),
+                        sha1) \
+                        .hexdigest()
+                return nnc
+        
+        return nonce
 
     @staticmethod
     def encrypt_hashlib(pwd):

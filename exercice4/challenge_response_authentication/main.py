@@ -84,7 +84,7 @@ if __name__=="__main__":
         print(f"|--------------------------------------------------")
         server = Server("ʕ•́ᴥ•̀ʔ")
         print(f"|\tServer name: [" + \
-              f"{Fore.LIGHTBLUE_EX} { server.name } {Style.RESET_ALL}] is activated.")
+                f"{Fore.LIGHTBLUE_EX} { server.name } {Style.RESET_ALL}] is activated.")
         server.activate(True)
 
         # Creating the client
@@ -133,9 +133,9 @@ if __name__=="__main__":
                         f"{Fore.CYAN} { password } {Style.RESET_ALL}")
                     print(f"|\ttreatment of the answer ...")
                 
-                server.nonce = Cryptographe.createNonce(server.secret)
+                server.nonce = server.cipher.createNonce(server.secret)
                 
-                crypted_password = client.client_response(password, server.nonce)
+                crypted_password = client.response(password, server.nonce)
                 
                 if SHOW_PROCESS:
                     print(f"|")
@@ -146,7 +146,7 @@ if __name__=="__main__":
                     print(f"|")
                     print(f"|\t{Fore.CYAN}checking if answer is correct.{Style.RESET_ALL}")
 
-                server_check = server.check_password(client, crypted_password)
+                server_check = server.check_client_password(client, crypted_password)
 
                 if server_check[1]:
                     
@@ -159,8 +159,7 @@ if __name__=="__main__":
                     server.activate(True)
                                         
                     check_exit()
-
-                    
+     
                 else:
                     
                     if SHOW_PROCESS:

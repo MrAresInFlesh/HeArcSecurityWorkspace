@@ -20,11 +20,13 @@ Indications (répondre aux questions en commentaire dans le code)
 ### Questions
 
 * quel hachage cryptographique utilisez-vous et pourquoi?
-  * J'utilise MD5(pour Message Digest 5). C'est une fonction de hachage cryptographique qui permet d'obtenir l'empreinte numérique d'une variable, par exemple une chaîne de caractère. Il est aujourd'hui dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. Le seul intérêt ici est qu'il convient bien à l'exercice d'implémentation du challenge-response protocole. Et voilà, c'est plus simple d'utiliser les fonctions directement proposées par hashlib.
+  * J'utilise MD5(pour Message Digest 5). C'est une fonction de hachage cryptographique qui permet d'obtenir l'empreinte numérique d'une variable, par exemple une chaîne de caractère. Il est aujourd'hui dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. Le seul intérêt ici est qu'il convient bien à l'exercice d'implémentation du challenge-response protocole. Et voilà, c'est plus simple d'utiliser les fonctions directement proposées par `hashlib`.
 * quelles précautions pour le générateur aléatoire?
+  * utilisation du module 'secrets' et de la fonction `tocken_hex()` pour générer une chaîne de caractère aléatoire.
 * quelles précautions pour la construction garantissant l'unicité du nonce?
+  * il ne doit pas se répéter; ici, une boucle vérifie si le nonce existe déjà dans une liste.
 * quelles précautions pour la durée de validité du nonce?
-  * Le nonce est renvoyé à chaque.
+  * le nonce est unique et généré à chaque fois que le challenge est envoyé.
 * la partie réseau n'est pas nécessaire: des appels de fonctions simples sont autorisés.
 
 ## Rendu
