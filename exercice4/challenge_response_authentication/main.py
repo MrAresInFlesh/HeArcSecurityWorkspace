@@ -12,7 +12,6 @@ import sys
 #|-----------------------/
 
 from client import Client
-from cryptool import Cipher
 from server import Server
 
 

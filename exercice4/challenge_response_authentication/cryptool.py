@@ -20,9 +20,9 @@ class Cipher:
     def __init__(self) -> None:
         self.nonces = list()
 
-#|------------------------------------------------------------------------------------|
-#   Methods              |
-#|-----------------------/
+    #|--------------------------------------------------------------------------------|
+    #   Methods              |
+    #|-----------------------/
 
     def createNonce(self, username):
         """_summary_
@@ -59,7 +59,7 @@ class Cipher:
             if self.nonces.count(nnc) > 1:
                 while self.nonces.count(nnc) > 1:
                     nnc = hmac.new(k.encode('ascii'), 
-                        (s + token_hex(2)).encode('ascii'),
+                        (s + token_hex(32)).encode('ascii'),
                         sha1) \
                         .hexdigest()
                 return nnc
