@@ -1,35 +1,24 @@
+---
+title: "Challenge-response authentication protocole"
+author: [Simon Meier]
+date: \today
+subject: "Sécurité"
+keywords: [Security, CHAP]
+subtitle: "Sécurité"
+lang: "fr"
+header-center: "Cours - Sécurité"
+logo: "images/arc-logo.png"
+logo-width: 105mm
+titlepage: true
+titlepage-color: "ffd7d4"
+titlepage-text-color: "242424"
+titlepage-rule-color: "360049"
+titlepage-rule-height: 4
+titlepage-background: "backgrounds/background_frontpage.png"
+page-background: "backgrounds/background_page.png"
+...
 
 # Challenge-response authentication protocole
-
-## Consigne
-
-> Voir <https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication>
->
-> Tenir compte des recommandations [hash, crypto, PRNG](02_Authentification/autres/nma-hash-crypt-PRNG-recommandations.pdf).
->
-> PS: nous avons déjà vu un tel protocole challenge-response dans le CHAP des slides ainsi que pour l'authentification d'un téléphone IP à Asterisk en R+A 2e année.
-
-**Délai: fin de la semaine des présentations.**
-
-### 4. Exercice à rendre: challenge-response
-
-Dans le langage de votre choix et par groupe de deux, implémentez un client et un serveur d'authentification basé sur un challenge-response.
-
-Indications (répondre aux questions en commentaire dans le code)
-
-### Questions
-
-* quel hachage cryptographique utilisez-vous et pourquoi?
-  * J'utilise MD5(pour Message Digest 5). C'est une fonction de hachage cryptographique qui permet d'obtenir l'empreinte numérique d'une variable, par exemple une chaîne de caractère. Il est aujourd'hui dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. Le seul intérêt ici est qu'il convient bien à l'exercice d'implémentation du challenge-response protocole. Et voilà, c'est plus simple d'utiliser les fonctions directement proposées par `hashlib`.
-* quelles précautions pour le générateur aléatoire?
-  * utilisation du module 'secrets' et de la fonction `tocken_hex()` pour générer une chaîne de caractère aléatoire.
-* quelles précautions pour la construction garantissant l'unicité du nonce?
-  * il ne doit pas se répéter; ici, une boucle vérifie si le nonce existe déjà dans une liste.
-* quelles précautions pour la durée de validité du nonce?
-  * le nonce est unique et généré à chaque fois que le challenge est envoyé.
-* la partie réseau n'est pas nécessaire: des appels de fonctions simples sont autorisés.
-
-## Rendu
 
 ---
 
@@ -41,21 +30,72 @@ Indications (répondre aux questions en commentaire dans le code)
 
 ---
 
+## Consigne
+
+> Voir <https://en.wikipedia.org/wiki/Challenge%E2%80%93response_authentication>
+> Tenir compte des recommandations [hash, crypto, PRNG](02_Authentification/autres/nma-hash-crypt-PRNG-recommandations.pdf).
+> PS: nous avons déjà vu un tel protocole challenge-response dans le CHAP des slides ainsi que pour l'authentification d'un téléphone IP à Asterisk en R+A 2e année.
+
+**Délai: fin de la semaine des présentations.**
+
 ### Arborescence du projet
 
-```typescript
+```python=
 exercice4
-│   README.md
-│   requirements.txt
-│
-├───.venv
-├───__pycach__
-└───challenge_response_authentication
+|   readme.md
+|   requirements.txt
+|---.venv
+|---__pycach__
+|---images
+|---backgrounds
+|---challenge_response_authentication
        client.py
        cryptool.py
        main.py
        server.py
 ```
+
+### 4. Exercice à rendre: challenge-response
+
+Dans le langage de votre choix et par groupe de deux, implémentez un client et un serveur d'authentification basé sur un challenge-response.
+
+Indications (répondre aux questions en commentaire dans le code)
+
+### Questions
+
+* quel hachage cryptographique utilisez-vous et pourquoi?
+  * J'utilise MD5(pour Message Digest 5). C'est une fonction de hachage cryptographique qui permet d'obtenir l'empreinte numérique d'une variable, par exemple une chaîne de caractère. Il est aujourd'hui dépassé et absolument impropre à toute utilisation en cryptographie ou en sécurité. Le seul intérêt ici est qu'il convient bien à l'exercice d'implémentation du challenge-response protocole.
+* quelles précautions pour le générateur aléatoire?
+  * utilisation du module 'secrets' et de la fonction `tocken_hex()` pour générer une chaîne de caractère aléatoire.
+* quelles précautions pour la construction garantissant l'unicité du nonce?
+  * il ne doit pas se répéter; ici, une boucle vérifie si le nonce existe déjà dans une liste. Cette opération est faite lors de l'utilisation de la fonction `createNonce()`.
+* quelles précautions pour la durée de validité du nonce?
+  * le nonce est unique et généré à chaque fois que le challenge est envoyé.
+* la partie réseau n'est pas nécessaire: des appels de fonctions simples sont autorisés.
+
+## Utilisation du programme
+
+1. Activez le `.venv` que vous avez configurer avec le 1er `readme` du projet:
+
+    ```python=
+    source .venv/Scripts/activate
+    ```
+
+2. Naviguez jusqu'à être dans le dossier:
+
+    `/exercice4/challenge_response_authentication`
+
+3. Lancer le programme:
+
+    ```bash=
+    python .\main.py
+    ```
+
+### Exemple de sortie du programme
+
+|Output|
+|:-:|
+|![Sortie du programme](images/i1.png)|
 
 ### Protocole choisi: CHAP
 

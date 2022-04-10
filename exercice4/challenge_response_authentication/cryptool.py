@@ -11,9 +11,9 @@ import hmac
 # CLASS                                                                               #
 #######################################################################################
 
-class Cryptographe:
+class Cipher:
     """_summary_
-    The Cryptographe class is an utilitary class that 
+    The Cipher class is an utilitary class that 
     regroups cryptographic functions.
     """
     
@@ -53,6 +53,8 @@ class Cryptographe:
 
         self.nonces.append(nonce)
         
+        # Checking if the nonce is already in the list. 
+        # If it is, it will generate a new one.
         for nnc in self.nonces:
             if self.nonces.count(nnc) > 1:
                 while self.nonces.count(nnc) > 1:
@@ -61,7 +63,6 @@ class Cryptographe:
                         sha1) \
                         .hexdigest()
                 return nnc
-        
         return nonce
 
     @staticmethod

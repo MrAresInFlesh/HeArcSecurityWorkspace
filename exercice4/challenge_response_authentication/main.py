@@ -12,7 +12,7 @@ import sys
 #|-----------------------/
 
 from client import Client
-from cryptool import Cryptographe
+from cryptool import Cipher
 from server import Server
 
 
@@ -80,14 +80,14 @@ if __name__=="__main__":
 #####|-----------------------/
 
     try:
-        # Creating the server and activating it.
+        # Creation of the server and activating it.
         print(f"|--------------------------------------------------")
-        server = Server("ʕ•́ᴥ•̀ʔ")
+        server = Server("The server")
         print(f"|\tServer name: [" + \
                 f"{Fore.LIGHTBLUE_EX} { server.name } {Style.RESET_ALL}] is activated.")
         server.activate(True)
 
-        # Creating the client
+        # Creation of the client
         client = Client(input("|\tEnter a name: "),
                     pwinput.pwinput(prompt="|\tPassword: ", mask='*')
                 )
@@ -103,6 +103,7 @@ if __name__=="__main__":
 #####|-----------------------------------/
     
     try:
+        
         while server.activated:
             
             # Showing some useful infos to the user.
@@ -148,6 +149,9 @@ if __name__=="__main__":
 
                 server_check = server.check_client_password(client, crypted_password)
 
+                # the second element of the variable is a boolean created with
+                # the function above, comparing the crypetd_password and the 
+                # result of the hash.
                 if server_check[1]:
                     
                     if SHOW_PROCESS:
@@ -155,9 +159,7 @@ if __name__=="__main__":
 
                     print(f"|\t{ Fore.GREEN } Correct { Style.RESET_ALL } password." + \
                           f"\n|\tYou can now access your workspace.")
-                    
-                    server.activate(True)
-                                        
+
                     check_exit()
      
                 else:
@@ -169,9 +171,9 @@ if __name__=="__main__":
                     print(f"|\t{Fore.RED}Wrong{Style.RESET_ALL} password. Try again?")
                     check_exit()
 
-
     except KeyboardInterrupt:
-        pass
+        print(f"|\t{Fore.GREEN}Program end.{Style.RESET_ALL}")
+        sys.exit()
     
     
 

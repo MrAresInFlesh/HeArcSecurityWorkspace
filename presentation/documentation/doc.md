@@ -7,7 +7,7 @@ keywords: [Android, Security]
 subtitle: "Sécurité"
 lang: "fr"
 header-center: "Cours - Sécurité"
-logo: "arc-logo.png"
+logo: "images/arc-logo.png"
 logo-width: 105mm
 titlepage: true
 titlepage-color: "ffd7d4"
@@ -54,7 +54,7 @@ Dans un souci de simplification, voici une représentation des acteurs du modèl
 2. **Application**: le(s) software(s) utilisés
 3. **OS**: le kernel et fonctionnalités de bases.
 
-![Fig 2. Schema](model.png)
+![Fig 2. Schema](images/model.png)
 source [^8]
 
 Le modèle de sécurité est basé sur le consentement de chacune des parties. Cela implique que pour qu'une action soit exécutée, les trois acteurs doivent être d'accord sur cette action.
@@ -129,7 +129,7 @@ L'état de l'appareil peut être l'un des suivants:
 
 - **UNLOCKED**: le logiciel personnalisé peut être flashé sur l'appareil et la vérification du démarrage est inactive.
 
-![Fig. 1](verified_boot.png) source [^7]
+![Fig. 1](images/verified_boot.png) source [^7]
 
 *Root of trust* est une clé cryptographique utilisée pour signer la copie Android qui s'exécute sur l'appareil. [^10]
 

@@ -2,7 +2,7 @@
 #   INTERNAL IMPORTS     |
 #|-----------------------/
 
-from cryptool import Cryptographe
+from cryptool import Cipher
 from client import Client
 
 ###############################################################################
@@ -31,7 +31,7 @@ class Server:
     def __init__(self, name) -> None:
         self.name = name
         self.secret = 'secret'
-        self.cipher = Cryptographe()
+        self.cipher = Cipher()
         self.nonce = self.cipher.createNonce(self.secret)
         self.activated = False
         self.clients = list()
@@ -69,7 +69,7 @@ class Server:
         :type client: Client
         :return: Nothing
         """
-        hash = Cryptographe\
+        hash = Cipher\
             .encrypt_hashlib(str(\
                 (client.password + self.nonce))\
                 .encode()
@@ -85,7 +85,7 @@ class Server:
         registering.
         :type client: Client
         """
-        hash = Cryptographe\
+        hash = Cipher\
             .encrypt_hashlib(str(\
                 (client.password + self.nonce))\
                 .encode()

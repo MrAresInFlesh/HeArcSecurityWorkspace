@@ -2,7 +2,7 @@
 #   INTERNAL IMPORTS     |
 #|-----------------------/
 
-from cryptool import Cryptographe
+from cryptool import Cipher
 
 ###############################################################################
 # CLASS                                                                       #
@@ -54,5 +54,5 @@ class Client:
         
         :return: The client response is being returned.
         """
-        hash = Cryptographe.encrypt_hashlib(str(password + nonce).encode())
+        hash = Cipher.encrypt_hashlib(str(password + nonce).encode())
         return hash.hexdigest()
