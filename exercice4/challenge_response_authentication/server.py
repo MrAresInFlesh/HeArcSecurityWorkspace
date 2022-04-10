@@ -90,5 +90,5 @@ class Server:
                 (client.password + self.nonce))\
                 .encode()
             )
-            
+        
         self.clients.append([client, hash.hexdigest(), self.secret])

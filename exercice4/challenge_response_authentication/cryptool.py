@@ -38,10 +38,8 @@ class Cipher:
         the HMAC hash of the username and the current
         time.
         """
-        
         # compute k using the time and the username.
         k = str(datetime.datetime.utcnow()) + username
-        
         # compute s using.
         s = token_hex(32)
         
@@ -52,7 +50,7 @@ class Cipher:
                         .hexdigest()
 
         self.nonces.append(nonce)
-        
+
         # Checking if the nonce is already in the list. 
         # If it is, it will generate a new one.
         for nnc in self.nonces:
