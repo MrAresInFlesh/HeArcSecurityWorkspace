@@ -1,0 +1,82 @@
+Folder PATH listing for volume OS
+Volume serial number is 0A1D-94E6
+C:.
+|   commands.txt
+|   hierarchy.txt
+|   rapport.pdf
+|   README.md
+|   
++---archives
+|       USB-Rubber-Ducky-master.zip
+|       
++---capture
+|       test_hdi.mp4
+|       
++---docs
+|   \---rapport
+|       |   arc-logo.png
+|       |   consignes.md
+|       |   rap.md
+|       |   rap.tex
+|       |   
+|       +---backgrounds
+|       |       background_frontpage.png
+|       |       background_page.png
+|       |       
+|       +---images
+|       |       1.png
+|       |       2.png
+|       |       hak5.png
+|       |       hid.gif
+|       |       logo.png
+|       |       saveind.png
+|       |       test_hid.gif
+|       |       
+|       \---r‚sultats
+|               hid.gif
+|               hid.mp4
+|               test_hdi.mp4
+|               test_hid.gif
+|               
++---payloads
+|       payload.txt
+|       payload_test.txt
+|       
+\---USB-Rubber-Ducky-master
+    |   duckencoder.jar
+    |   Ducky_Encoder_GUI.jar
+    |   README.txt
+    |   
+    +---Decode
+    |       ducky-decode.pl
+    |       
+    +---ducky-flasher
+    |   |   ducky-flasher
+    |   |   readme.txt
+    |   |   setup.py
+    |   |   uninstall.py
+    |   |   
+    |   \---Firmware
+    |           c_duck_v2.hex
+    |           c_duck_v2_S001.hex
+    |           c_duck_v2_S002.hex
+    |           duck_v2.hex
+    |           m_duck_v2.hex
+    |           USB_v2.hex
+    |           
+    +---Encoder
+    |   |   .classpath
+    |   |   .project
+    |   |   encoder.jar
+    |   |   README
+    |   |   
+    |   +---.settings
+    |   |       org.eclipse.jdt.core.prefs
+    |   |       
+    |   +---resources
+    |   |       
+    |   \---src
+    |           Encoder.java
+    |           Encoder_GUI.java
+    |           
+    +---Firmware
