@@ -32,7 +32,7 @@ page-background: "backgrounds/background_page.png"
 
 # Résumé
 
-Dans le cadre du cours "Sécurité", une présentation doit être réalisée sur un sujet choisi parmi une liste. Le sujet choisi ici est *Stratégie et démonstration d'attaque par clé USB intelligente*.
+Dans le cadre du cours "Sécurité", un projet doit être réalisé sur un sujet choisi parmi une liste. Le sujet choisi ici est *Stratégie et démonstration d'attaque par clé USB intelligente*.
 
 La stratégie d'attaque choisie est celle du HID (*Human Interface Device*) spoofing, soit déguiser en clé USB un matériel tout à fait différent pour exécuter des instructions sur un terminal cible.
 
