@@ -50,7 +50,7 @@ C'est sur cette disonnance que les *USB Rubber Ducky*[^1] appuie leur attaque. E
 
 C'est sur cette faille que le présent travail s'appuie, en utilisant une de ces clés USB pour lancer une attaque sur un ordinateur ciblé. L'attaque en question n'est pas dans un but destructeur, mais pour observer ce qui est possible d'effectuer par cette brèche.
 
-Un exemple simple et inoffensif, `nggyu.txt`, est implémenté et fourni dans le workspace du projet.
+Un exemple simple et inoffensif, `payload.txt`, est implémenté et fourni dans le workspace du projet.
 
 # État de l'art
 
@@ -78,7 +78,7 @@ Ce faux clavier injecte des frappes dès que l'appareil est branché sur l'ordin
 
 |Schéma d'attaque|
 |:-:|
-|![HID Spoofing schema](images/1.png)|
+|![HID Spoofing schema](docs/rapport/images/1.png)|
 |Source: elie.net [image source](https://elie.net/blog/security/what-are-malicious-usb-keys-and-how-to-create-a-realistic-one/)|
 
 ### Attaque WHID
@@ -91,7 +91,7 @@ Utilise une clé USB standard qui contient des fichiers `HTML`. Généralement, 
 
 |Schéma d'attaque|
 |:-:|
-|![Social engineering strategy](images/2.png)|
+|![Social engineering strategy](docs/rapport/images/2.png)|
 |Source: elie.net [image source](https://elie.net/blog/security/what-are-malicious-usb-keys-and-how-to-create-a-realistic-one/)|
 
 ## 0-Days
@@ -154,7 +154,7 @@ Le premier script ci-dessous ouvre un invite de commande et lance `notepad.exe` 
 
 |Run 1|
 |:-:|
-|![Test](images/test_hid.gif)|
+|![Test](docs/rapport/images/test_hid.gif)|
 
 ```powershell
 DELAY 1000
@@ -208,7 +208,7 @@ ENTER
 
 |Run 2|
 |:-:|
-|![Lien internet](images/hid.gif)|
+|![Lien internet](docs/rapport/images/hid.gif)|
 
 Ces exemples sont simples dans une volonté de montrer de petites opérations inoffensives.
 
