@@ -1,0 +1,30 @@
+REM Title: Never gonna give you up
+REM Author: Simon Meier
+REM Description Test HID spoofing payload for educational purpose
+REM Target: Windows 10 (Powershell)
+REM Props: Hak5, Thinkst
+REM Version: 1.0
+REM Category: General
+
+DEFAULTDELAY 250
+
+DELAY 1500
+GUI r
+DELAY 200
+STRING msedge.exe https://www.youtube.com/watch?v=dQw4w9WgXcQ
+ENTER
+DELAY 200
+GUI r
+STRING cmd
+ENTER
+STRING notepad.exe
+ENTER
+STRING never gonna give
+DELAY 50
+ENTER
+STRING never gonna give
+DELAY 50
+CTRL S
+DELAY 50
+STRING never
+ENTER

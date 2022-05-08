@@ -1,0 +1,1 @@
+java -jar duckencoder.jar  -i ../payload.txt -o D:/inject.bin
